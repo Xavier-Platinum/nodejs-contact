@@ -4,7 +4,11 @@
   "description": "\"This app is built for sending mails in nodejs\"",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
+    "start:dev": "nodemon app.js",
+    "start:prod": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "Mails",
@@ -14,6 +18,8 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "nodemailer": "^6.5.0"
